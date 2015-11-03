@@ -1,0 +1,3 @@
+# Don't add devdependencies
+node_modules
+typings
