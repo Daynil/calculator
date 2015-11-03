@@ -9,7 +9,11 @@
     margin: 0 auto;
     top: 100px;
     font: normal 30px "Source Sans Pro";
-    color: aliceblue; }
+    color: aliceblue;
+    border: 2px solid cornflowerblue; }
+  #page-wrapper * {
+    border: none;
+    padding: 10px; }
 
 #history {
   display: inline-block;

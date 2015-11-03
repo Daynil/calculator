@@ -14,6 +14,12 @@ $main-font: normal 30px 'Source Sans Pro';
 		top: 100px;
 		font: $main-font;
 		color: aliceblue;
+		border: 2px solid cornflowerblue;
+	}
+	
+	* {
+		border: none;
+		padding: 10px;
 	}
 }
 
