@@ -1,14 +1,26 @@
 $base-color: hsl(77, 2%, 22%);
-$main-font: 'Source Sans Pro';
+$main-font: normal 30px 'Source Sans Pro';
 
 #page-wrapper {
 	background-color: $base-color;
+	text-align: center;
 	width: 100%;
 	height: 100vh;
-	font-family: $main-font;
 	
 	table {
-		font-size: 30px;
+		display: inline-block;
+		position: relative;
+		margin: 0 auto;
+		top: 100px;
+		font: $main-font;
 		color: aliceblue;
 	}
+}
+
+#history {
+	display: inline-block;
+	position: relative;
+	top: 150px;
+	font: $main-font;
+	color: aliceblue;
 }

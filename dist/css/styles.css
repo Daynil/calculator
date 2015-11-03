@@ -1,10 +1,21 @@
 #page-wrapper {
   background-color: #393937;
+  text-align: center;
   width: 100%;
-  height: 100vh;
-  font-family: "Source Sans Pro"; }
+  height: 100vh; }
   #page-wrapper table {
-    font-size: 30px;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    top: 100px;
+    font: normal 30px "Source Sans Pro";
     color: aliceblue; }
+
+#history {
+  display: inline-block;
+  position: relative;
+  top: 150px;
+  font: normal 30px "Source Sans Pro";
+  color: aliceblue; }
 
 /*# sourceMappingURL=styles.css.map */
