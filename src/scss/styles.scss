@@ -1,4 +1,5 @@
 $base-color: hsl(77, 2%, 22%);
+$base-light: hsl(77, 2%, 30%);
 $main-font: normal 30px 'Source Sans Pro';
 
 #page-wrapper {
@@ -6,21 +7,36 @@ $main-font: normal 30px 'Source Sans Pro';
 	text-align: center;
 	width: 100%;
 	height: 100vh;
+	min-height: 700px;
 	
 	table {
 		display: inline-block;
 		position: relative;
 		margin: 0 auto;
 		top: 100px;
+		table-layout: fixed;
 		font: $main-font;
+		font-weight: normal !important;
 		color: aliceblue;
 		border: 2px solid cornflowerblue;
-	}
-	
-	* {
-		border: none;
-		padding: 10px;
-	}
+		
+		* {
+			border: none;
+		}	
+	}	
+}
+
+#display-operation {
+	font-size: 20px;
+}
+
+.button-padding * {
+		width: 105px;
+		height: 70px;
+		background-color: $base-light;
+		&:hover {
+
+		}
 }
 
 #history {
