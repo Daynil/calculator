@@ -1,48 +1,121 @@
-$base-color: hsl(77, 2%, 22%);
-$base-light: hsl(77, 2%, 30%);
+$color-base: hsl(77, 2%, 22%);
+$color-fade: hsl(77, 2%, 24%);
+$color-light: hsl(77, 2%, 27%);
+$color-hover: hsl(77, 2%, 40%);
+
+$color-theme: hsl(219, 79.2%, 66.1%);
+$color-theme-faded: hsl(219, 10%, 30%);
+
+$color-text: hsl(208, 100%, 97%);
+$color-text-faded: hsl(208, 20%, 80%);
+
 $main-font: normal 30px 'Source Sans Pro';
 
+.no-select {
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 #page-wrapper {
-	background-color: $base-color;
+	background-color: $color-base;
 	text-align: center;
 	width: 100%;
 	height: 100vh;
 	min-height: 700px;
 	
 	table {
-		display: inline-block;
-		position: relative;
-		margin: 0 auto;
-		top: 100px;
+		float: left;
+		padding: 7px;
 		table-layout: fixed;
 		font: $main-font;
-		font-weight: normal !important;
-		color: aliceblue;
-		border: 2px solid cornflowerblue;
-		
+		color: $color-text;
+		border: 2px solid $color-theme;
+		border-radius: 10px;
 		* {
 			border: none;
-		}	
+			font-weight: normal;
+		}
+		.chi {
+			font-size: 25px;
+		}
 	}	
+}
+
+#calc-wrapper {
+	position: relative;
+	top: 100px;
+	width: 760px;
+	margin: 0 auto;
+}
+
+.display {
+	text-align: right;
+	padding: 10 20 10 0;
+	background-color: $color-theme-faded;
+	border-radius: 5px;
 }
 
 #display-operation {
 	font-size: 20px;
+	color: $color-text-faded;
+}
+
+#display-result {
+	font-size: 50px;
+	padding-bottom: 15px;
 }
 
 .button-padding * {
-		width: 105px;
-		height: 70px;
-		background-color: $base-light;
-		&:hover {
-
-		}
+	width: 105px;
+	height: 70px;
+	background-color: $color-light;
+	border-radius: 20px;
+	cursor: pointer;
+	@extend .no-select;
+	&:hover {
+		background-color: $color-hover;
+	}
 }
 
 #history {
-	display: inline-block;
-	position: relative;
-	top: 150px;
+	border: 2px solid $color-theme;
+	border-radius: 10px;
+	width: 300px;
+	height: 587px;
+	float: left;
 	font: $main-font;
 	color: aliceblue;
+}
+
+#history-title {
+	text-align: left;
+	padding: 10 0 10 20;
+	border-bottom: 1px solid $color-theme;
+}
+
+#history-listview {
+	padding: 10 20 0 10;
+	height: 460px;
+	text-align: right;
+	overflow-y: auto;
+}
+
+.history-item {
+	padding-top: 10px;
+	.item-operation {
+		@extend #display-operation;
+	}
+}
+
+#history-clear {
+	text-align: right;
+	i {
+		padding-top: 7px;
+		padding-right: 20px;
+		cursor: pointer;
+		&:hover {
+			color: $color-theme;
+		}
+	}
 }

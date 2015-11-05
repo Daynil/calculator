@@ -1,3 +1,8 @@
+.no-select, .button-padding * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
 #page-wrapper {
   background-color: #393937;
   text-align: center;
@@ -5,31 +10,78 @@
   height: 100vh;
   min-height: 700px; }
   #page-wrapper table {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto;
-    top: 100px;
+    float: left;
+    padding: 7px;
     table-layout: fixed;
     font: normal 30px "Source Sans Pro";
-    font-weight: normal !important;
     color: aliceblue;
-    border: 2px solid cornflowerblue; }
+    border: 2px solid #6494ed;
+    border-radius: 10px; }
     #page-wrapper table * {
-      border: none; }
+      border: none;
+      font-weight: normal; }
+    #page-wrapper table .chi {
+      font-size: 25px; }
 
-#display-operation {
-  font-size: 20px; }
+#calc-wrapper {
+  position: relative;
+  top: 100px;
+  width: 760px;
+  margin: 0 auto; }
+
+.display {
+  text-align: right;
+  padding: 10 20 10 0;
+  background-color: #454a54;
+  border-radius: 5px; }
+
+#display-operation, .history-item .item-operation {
+  font-size: 20px;
+  color: #c2cdd6; }
+
+#display-result {
+  font-size: 50px;
+  padding-bottom: 15px; }
 
 .button-padding * {
   width: 105px;
   height: 70px;
-  background-color: #4d4e4b; }
+  background-color: #454643;
+  border-radius: 20px;
+  cursor: pointer; }
+  .button-padding *:hover {
+    background-color: #676864; }
 
 #history {
-  display: inline-block;
-  position: relative;
-  top: 150px;
+  border: 2px solid #6494ed;
+  border-radius: 10px;
+  width: 300px;
+  height: 587px;
+  float: left;
   font: normal 30px "Source Sans Pro";
   color: aliceblue; }
+
+#history-title {
+  text-align: left;
+  padding: 10 0 10 20;
+  border-bottom: 1px solid #6494ed; }
+
+#history-listview {
+  padding: 10 20 0 10;
+  height: 460px;
+  text-align: right;
+  overflow-y: auto; }
+
+.history-item {
+  padding-top: 10px; }
+
+#history-clear {
+  text-align: right; }
+  #history-clear i {
+    padding-top: 7px;
+    padding-right: 20px;
+    cursor: pointer; }
+    #history-clear i:hover {
+      color: #6494ed; }
 
 /*# sourceMappingURL=styles.css.map */
