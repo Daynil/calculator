@@ -1,10 +1,12 @@
 $color-base: hsl(77, 2%, 22%);
 $color-fade: hsl(77, 2%, 24%);
 $color-light: hsl(77, 2%, 27%);
-$color-hover: hsl(77, 2%, 40%);
+$color-hover: hsl(77,2%,33%);
+$color-press: hsl(77, 2%, 45%);
 
 $color-theme: hsl(219, 79.2%, 66.1%);
 $color-theme-faded: hsl(219, 10%, 30%);
+$color-theme-highlighted: hsl(219, 80%, 78%);
 
 $color-text: hsl(208, 100%, 97%);
 $color-text-faded: hsl(208, 20%, 80%);
@@ -76,6 +78,18 @@ $main-font: normal 30px 'Source Sans Pro';
 	&:hover {
 		background-color: $color-hover;
 	}
+	&:active {
+		background-color: $color-press;
+	}
+}
+
+#equals {
+	&:hover {
+		background-color: $color-theme;
+	}
+	&:active {
+		background-color: $color-theme-highlighted;
+	}
 }
 
 #history {
@@ -116,6 +130,9 @@ $main-font: normal 30px 'Source Sans Pro';
 		cursor: pointer;
 		&:hover {
 			color: $color-theme;
+		}
+		&:active {
+			color: $color-theme-highlighted;
 		}
 	}
 }

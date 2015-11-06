@@ -50,7 +50,15 @@
   border-radius: 20px;
   cursor: pointer; }
   .button-padding *:hover {
-    background-color: #676864; }
+    background-color: #555652; }
+  .button-padding *:active {
+    background-color: #747570; }
+
+#equals:hover {
+  background-color: #6494ed; }
+
+#equals:active {
+  background-color: #9ab9f4; }
 
 #history {
   border: 2px solid #6494ed;
@@ -83,5 +91,7 @@
     cursor: pointer; }
     #history-clear i:hover {
       color: #6494ed; }
+    #history-clear i:active {
+      color: #9ab9f4; }
 
 /*# sourceMappingURL=styles.css.map */
