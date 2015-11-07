@@ -27,6 +27,7 @@ $main-font: normal 30px 'Source Sans Pro';
 	min-height: 700px;
 	
 	table {
+		height: 591px;
 		float: left;
 		padding: 7px;
 		table-layout: fixed;
@@ -44,6 +45,10 @@ $main-font: normal 30px 'Source Sans Pro';
 	}	
 }
 
+#delete {
+	line-height: 75px;
+}
+
 #calc-wrapper {
 	position: relative;
 	top: 100px;
@@ -59,11 +64,13 @@ $main-font: normal 30px 'Source Sans Pro';
 }
 
 #display-operation {
+	height: 45px;
 	font-size: 20px;
 	color: $color-text-faded;
 }
 
 #display-result {
+	height: 88px;
 	font-size: 50px;
 	padding-bottom: 15px;
 }

@@ -10,6 +10,7 @@
   height: 100vh;
   min-height: 700px; }
   #page-wrapper table {
+    height: 591px;
     float: left;
     padding: 7px;
     table-layout: fixed;
@@ -22,6 +23,9 @@
       font-weight: normal; }
     #page-wrapper table .chi {
       font-size: 25px; }
+
+#delete {
+  line-height: 75px; }
 
 #calc-wrapper {
   position: relative;
@@ -36,10 +40,12 @@
   border-radius: 5px; }
 
 #display-operation, .history-item .item-operation {
+  height: 45px;
   font-size: 20px;
   color: #c2cdd6; }
 
 #display-result {
+  height: 88px;
   font-size: 50px;
   padding-bottom: 15px; }
 

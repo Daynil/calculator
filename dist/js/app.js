@@ -10,20 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var display_service_1 = require('./display-service');
 // Annotation section
 var CalculatorApp = (function () {
-    function CalculatorApp() {
-        this.name = 'Alice';
+    function CalculatorApp(displayService) {
+        this.displayService = displayService;
     }
+    CalculatorApp.prototype.numberTyped = function (number) {
+        this.displayService.appendResult(number);
+    };
+    CalculatorApp.prototype.operationTyped = function (operation) {
+        this.displayService.addOperation(operation);
+    };
+    CalculatorApp.prototype.cleared = function () {
+        this.displayService.clearAll();
+    };
+    CalculatorApp.prototype.delete = function () {
+        this.displayService.delete();
+    };
     CalculatorApp = __decorate([
         angular2_1.Component({
-            selector: 'calc-app'
+            selector: 'calc-app',
+            viewBindings: [display_service_1.DisplayService]
         }),
         angular2_1.View({
             templateUrl: '../html/calc-app.html',
             styleUrls: ['../css/styles.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [display_service_1.DisplayService])
     ], CalculatorApp);
     return CalculatorApp;
 })();

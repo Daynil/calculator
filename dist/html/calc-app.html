@@ -2,46 +2,46 @@
 	<section id="calc-wrapper">
 		<table border="1">
 			<tr>
-				<th id="display-operation" colspan="4" class="display">385 + 5</th>
+				<th id="display-operation" colspan="4" class="display">{{ displayService.displayOperation }}</th>
 			</tr>
 			<tr>
-				<th id="display-result" colspan="4"  class="display">390</th>
+				<th id="display-result" colspan="4"  class="display">{{ displayService.displayResult }}</th>
 			</tr>
 			<tr id="operations-row1" class="button-padding">
-				<th>%</th>
-				<th>√</th>
-				<th class="chi">χ²</th>
-				<th class="chi">1/χ</th>
+				<th (click)="percent()">%</th>
+				<th (click)="sqrt()">√</th>
+				<th class="chi" (click)="chisq()">χ²</th>
+				<th class="chi" (click)="onechi()">1/χ</th>
 			</tr>
 			<tr id="operations-row2" class="button-padding">
-				<th>CE</th>
-				<th>C</th>
-				<th><i class="fa fa-long-arrow-left" style="color: alicewhite; line-height: 75px;"></i></th>
-				<th>÷</th>
+				<th (click)="cleared()">C</th>
+				<th (click)="delete()"><i class="fa fa-long-arrow-left" id="delete"></i></th>
+				<th (click)="factorial()">n!</th>
+				<th (click)=operationTyped('÷')>÷</th>
 			</tr>
 			<tr id="numbers7" class="button-padding">
-				<th>7</th>
-				<th>8</th>
-				<th>9</th>
-				<th>×</th>
+				<th (click)="numberTyped(7)">7</th>
+				<th (click)="numberTyped(8)">8</th>
+				<th (click)="numberTyped(9)">9</th>
+				<th (click)="operationTyped('×')">×</th>
 			</tr>
 			<tr id="numbers4" class="button-padding">
-				<th>4</th>
-				<th>5</th>
-				<th>6</th>
-				<th>-</th>
+				<th (click)="numberTyped(4)">4</th>
+				<th (click)="numberTyped(5)">5</th>
+				<th (click)="numberTyped(6)">6</th>
+				<th (click)="operationTyped('-')">-</th>
 			</tr>
 			<tr id="numbers1" class="button-padding">
-				<th>1</th>
-				<th>2</th>
-				<th>3</th>
-				<th>+</th>
+				<th (click)="numberTyped(1)">1</th>
+				<th (click)="numberTyped(2)">2</th>
+				<th (click)="numberTyped(3)">3</th>
+				<th (click)="operationTyped('+')">+</th>
 			</tr>
 			<tr id="numbers0"  class="button-padding">
-				<th>±</th>
-				<th>0</th>
-				<th>.</th>
-				<th id="equals">=</th>
+				<th (click)="negate()">±</th>
+				<th (click)="numberTyped(0)">0</th>
+				<th (click)="point()">.</th>
+				<th id="equals" (click)="equals()">=</th>
 			</tr>
 		</table>
 		<div id="history">
