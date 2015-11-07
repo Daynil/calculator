@@ -17,9 +17,11 @@ var CalculatorApp = (function () {
         this.displayService = displayService;
     }
     CalculatorApp.prototype.numberTyped = function (number) {
+        this.displayService.updateLastPressed(number.toString());
         this.displayService.appendResult(number);
     };
     CalculatorApp.prototype.operationTyped = function (operation) {
+        this.displayService.updateLastPressed(operation);
         this.displayService.addOperation(operation);
     };
     CalculatorApp.prototype.cleared = function () {
@@ -27,6 +29,9 @@ var CalculatorApp = (function () {
     };
     CalculatorApp.prototype.delete = function () {
         this.displayService.delete();
+    };
+    CalculatorApp.prototype.equals = function () {
+        this.displayService.equals();
     };
     CalculatorApp = __decorate([
         angular2_1.Component({

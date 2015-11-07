@@ -18,10 +18,12 @@ class CalculatorApp {
   }
   
   numberTyped(number: number) {
+	  this.displayService.updateLastPressed(number.toString());
 	  this.displayService.appendResult(number);
   }
   
   operationTyped(operation: string) {
+	  this.displayService.updateLastPressed(operation);
 	  this.displayService.addOperation(operation);
   }
   
@@ -31,6 +33,10 @@ class CalculatorApp {
   
   delete() {
 	  this.displayService.delete();
+  }
+  
+  equals() {
+	  this.displayService.equals();
   }
   
 }
