@@ -4,6 +4,7 @@ var tsc = require('gulp-typescript');
 var tsProject = tsc.createProject('tsconfig.json');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+var jasmine = require('gulp-jasmine');
 
 // Start a local server in base directory after compile-ts runs
 gulp.task('serve', ['compile-ts', 'compile-scss'], function() {
@@ -58,4 +59,15 @@ gulp.task('compile-ts', function() {
 		.pipe(gulp.dest('./dist/js'));
 		
 	return stream;
+});
+
+gulp.task('test', function() {
+	gulp.run('run-test');
+	gulp.watch(['./dist/js/display-service.spec.js'], ['run-test']);
+});
+
+gulp.task('run-test', function() {
+	var filesForTest = ['./dist/js/display-service.spec.js'];
+	return gulp.src(filesForTest)
+		.pipe(jasmine());
 });
