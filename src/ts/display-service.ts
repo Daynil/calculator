@@ -2,8 +2,8 @@ class HistoryItem {
 	operationChain: string;
 	result: number;
 	
-	constructor(opChain, result) {
-		this.operationChain = opChain  + " =";
+	constructor(opChain: string[], result: number) {
+		this.operationChain = opChain.join(" ") + " =";
 		this.result = result;
 	}
 }

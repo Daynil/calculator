@@ -9,7 +9,7 @@ import {HistoryItem} from './history-item';
 })
 @View({
   templateUrl: '../html/calc-app.html',
-  styleUrls: ['../css/styles.css'],
+  styleUrls: ['../css/calc-app.css'],
   directives: [CORE_DIRECTIVES, HistoryItem]
 })
 // Component controller
@@ -18,7 +18,7 @@ class CalculatorApp {
 	
   constructor(public displayService: DisplayService) {
 	  this.historyitems = displayService.history;
-  }
+  } 
   
   numberTyped(number: number) {
 	  this.displayService.updateLastPressed(number.toString());

@@ -12,11 +12,18 @@ import {Component, View, bootstrap} from 'angular2/angular2';
 	</div>
   `,
   styles: [`
-	  .history-item {padding-top: 10px;}
-	  .item-operation{
-		  height: 45px;
+	  .item-operation {
 		  font-size: 20px;
 		  color: hsl(208, 20%, 80%);
+	  }
+	  .history-item {
+		  padding-right: 20px;
+		  padding-left: 20px;
+		  margin-top: 15px;
+		  margin-bottom: 15px;
+	  }
+	  .history-item:hover {
+		  background-color: hsl(77,2%,33%);
 	  }
   `]
 })

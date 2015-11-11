@@ -39,7 +39,7 @@
   background-color: #454a54;
   border-radius: 5px; }
 
-#display-operation, .history-item .item-operation {
+#display-operation {
   height: 45px;
   font-size: 20px;
   color: #c2cdd6; }
@@ -81,13 +81,9 @@
   border-bottom: 1px solid #6494ed; }
 
 #history-listview {
-  padding: 10 20 0 10;
   height: 460px;
   text-align: right;
   overflow-y: auto; }
-
-.history-item {
-  padding-top: 10px; }
 
 #history-clear {
   text-align: right; }

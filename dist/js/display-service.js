@@ -1,6 +1,6 @@
 var HistoryItem = (function () {
     function HistoryItem(opChain, result) {
-        this.operationChain = opChain + " =";
+        this.operationChain = opChain.join(" ") + " =";
         this.result = result;
     }
     return HistoryItem;

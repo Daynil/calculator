@@ -116,17 +116,9 @@ $main-font: normal 30px 'Source Sans Pro';
 }
 
 #history-listview {
-	padding: 10 20 0 10;
 	height: 460px;
 	text-align: right;
 	overflow-y: auto;
-}
-
-.history-item {
-	padding-top: 10px;
-	.item-operation {
-		@extend #display-operation;
-	}
 }
 
 #history-clear {
