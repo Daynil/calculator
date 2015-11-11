@@ -47,16 +47,13 @@
 		<div id="history">
 			<div id="history-title">History</div>
 			<div id="history-listview">
-				<div class="history-item">
-					<div class="item-operation">1 + 8 - 4 =</div>
-					<div class="item-result">5</div>
-				</div>
-				<div class="history-item">
-					<div class="item-operation">1 + 8 - 4 =</div>
-					<div class="item-result">5</div>
-				</div>
+				<history-item 
+					*ng-for="#item of displayService.history"
+					[operationchain]="item.operationChain"
+					[result]="item.result">
+				</history-item>
 			</div>
-			<div id="history-clear"><i class="fa fa-trash"></i></div>
+			<div id="history-clear" (click)="clearHistory()"><i class="fa fa-trash"></i></div>
 		</div>
 	</section>
 </div>

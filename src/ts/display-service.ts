@@ -1,3 +1,13 @@
+class HistoryItem {
+	operationChain: string;
+	result: number;
+	
+	constructor(opChain, result) {
+		this.operationChain = opChain  + " =";
+		this.result = result;
+	}
+}
+
 export class DisplayService {
 	displayResult: string = "0";
 	maxResult: number = 16;
@@ -7,6 +17,7 @@ export class DisplayService {
 	currentResult: number = 0;
 	newResult: boolean = false;
 	lastPressed: string[] = [];
+	history: HistoryItem[] = [];
 	
 	appendResult(num: number) {
 		if (this.displayResult === "0") this.displayResult = "";
@@ -107,7 +118,10 @@ export class DisplayService {
 		this.clearAll();
 		this.newResult = true;
 		this.appendResult(result);
+		this.newResult = true;
 		// Add to history
+		var historyItem = new HistoryItem(operations, result);
+		this.history.push(historyItem);
 	}
 	
 	clearAll() {
@@ -117,6 +131,10 @@ export class DisplayService {
 		this.operationChain = [];
 		this.lastPressed = [];
 		this.newResult = false;
+	}
+	
+	clearHistory() {
+		this.history = [];
 	}
 	
 	delete() {

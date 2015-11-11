@@ -1,5 +1,6 @@
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {Component, View, CORE_DIRECTIVES, bootstrap} from 'angular2/angular2';
 import {DisplayService} from './display-service';
+import {HistoryItem} from './history-item';
 
 // Annotation section
 @Component({
@@ -8,13 +9,15 @@ import {DisplayService} from './display-service';
 })
 @View({
   templateUrl: '../html/calc-app.html',
-  styleUrls: ['../css/styles.css']
+  styleUrls: ['../css/styles.css'],
+  directives: [CORE_DIRECTIVES, HistoryItem]
 })
 // Component controller
 class CalculatorApp {
+	historyitems: any[];
 	
   constructor(public displayService: DisplayService) {
-	  
+	  this.historyitems = displayService.history;
   }
   
   numberTyped(number: number) {
@@ -37,6 +40,10 @@ class CalculatorApp {
   
   equals() {
 	  this.displayService.equals();
+  }
+  
+  clearHistory() {
+	  this.displayService.clearHistory();
   }
   
 }

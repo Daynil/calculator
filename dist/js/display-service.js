@@ -1,3 +1,10 @@
+var HistoryItem = (function () {
+    function HistoryItem(opChain, result) {
+        this.operationChain = opChain + " =";
+        this.result = result;
+    }
+    return HistoryItem;
+})();
 var DisplayService = (function () {
     function DisplayService() {
         this.displayResult = "0";
@@ -8,6 +15,7 @@ var DisplayService = (function () {
         this.currentResult = 0;
         this.newResult = false;
         this.lastPressed = [];
+        this.history = [];
     }
     DisplayService.prototype.appendResult = function (num) {
         if (this.displayResult === "0")
@@ -111,7 +119,10 @@ var DisplayService = (function () {
         this.clearAll();
         this.newResult = true;
         this.appendResult(result);
+        this.newResult = true;
         // Add to history
+        var historyItem = new HistoryItem(operations, result);
+        this.history.push(historyItem);
     };
     DisplayService.prototype.clearAll = function () {
         this.displayOperation = "";
@@ -120,6 +131,9 @@ var DisplayService = (function () {
         this.operationChain = [];
         this.lastPressed = [];
         this.newResult = false;
+    };
+    DisplayService.prototype.clearHistory = function () {
+        this.history = [];
     };
     DisplayService.prototype.delete = function () {
         if (this.displayResult) {

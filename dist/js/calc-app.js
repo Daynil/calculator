@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var display_service_1 = require('./display-service');
+var history_item_1 = require('./history-item');
 // Annotation section
 var CalculatorApp = (function () {
     function CalculatorApp(displayService) {
         this.displayService = displayService;
+        this.historyitems = displayService.history;
     }
     CalculatorApp.prototype.numberTyped = function (number) {
         this.displayService.updateLastPressed(number.toString());
@@ -33,6 +35,9 @@ var CalculatorApp = (function () {
     CalculatorApp.prototype.equals = function () {
         this.displayService.equals();
     };
+    CalculatorApp.prototype.clearHistory = function () {
+        this.displayService.clearHistory();
+    };
     CalculatorApp = __decorate([
         angular2_1.Component({
             selector: 'calc-app',
@@ -40,7 +45,8 @@ var CalculatorApp = (function () {
         }),
         angular2_1.View({
             templateUrl: '../html/calc-app.html',
-            styleUrls: ['../css/styles.css']
+            styleUrls: ['../css/styles.css'],
+            directives: [angular2_1.CORE_DIRECTIVES, history_item_1.HistoryItem]
         }), 
         __metadata('design:paramtypes', [display_service_1.DisplayService])
     ], CalculatorApp);
@@ -49,4 +55,4 @@ var CalculatorApp = (function () {
 angular2_1.bootstrap(CalculatorApp)
     .then(function (success) { return console.log(success); }, function (error) { return console.log(error); });
 
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=calc-app.js.map
