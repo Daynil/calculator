@@ -169,7 +169,7 @@ $main-font: normal 30px 'Source Sans Pro';
 }
 
 #foot i, #foot a {
-	color: hsl(3, 65%, 70%);
+	color: $color-theme;
 	transition: 0.6s;
 	text-decoration: none;
 }
