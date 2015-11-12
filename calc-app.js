@@ -74,8 +74,8 @@ var CalculatorApp = (function () {
             viewBindings: [display_service_1.DisplayService]
         }),
         angular2_1.View({
-            templateUrl: '../html/calc-app.html',
-            styleUrls: ['../css/calc-app.css'],
+            templateUrl: './calc-app.html',
+            styleUrls: ['./calc-app.css'],
             directives: [angular2_1.CORE_DIRECTIVES, history_item_1.HistoryItem]
         }), 
         __metadata('design:paramtypes', [display_service_1.DisplayService])
