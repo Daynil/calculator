@@ -7,16 +7,10 @@
 			<tr>
 				<th id="display-result" colspan="4"  class="display">{{ displayService.displayResult }}</th>
 			</tr>
-			<tr id="operations-row1" class="button-padding">
-				<th (click)="percent()">%</th>
-				<th (click)="sqrt()">√</th>
-				<th class="chi" (click)="chisq()">χ²</th>
-				<th class="chi" (click)="onechi()">1/χ</th>
-			</tr>
 			<tr id="operations-row2" class="button-padding">
+				<th (click)="clearedEntry()">CE</th>
 				<th (click)="cleared()">C</th>
 				<th (click)="delete()"><i class="fa fa-long-arrow-left" id="delete"></i></th>
-				<th (click)="factorial()">n!</th>
 				<th (click)=operationTyped('÷')>÷</th>
 			</tr>
 			<tr id="numbers7" class="button-padding">
@@ -50,10 +44,19 @@
 				<history-item
 					*ng-for="#item of displayService.history"
 					[operationchain]="item.operationChain"
-					[result]="item.result">
+					[result]="item.result"
+					(click)="historySelected(item)">
 				</history-item>
 			</div>
 			<div id="history-clear" (click)="clearHistory()"><i class="fa fa-trash"></i></div>
 		</div>
 	</section>
+</div>
+
+<div id="foot">
+	Created with ♥ by <a href="https://github.com/Daynil/">Daynil</a> for <a href="http://www.freecodecamp.com/">FCC</a>
+	<br><a id="gh-link" href="https://github.com/Daynil/pomodoro-timer">
+	<i class="fa fa-github-square fa-lg"></i>
+	Github repo
+	</a>
 </div>

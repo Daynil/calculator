@@ -26,8 +26,38 @@ var CalculatorApp = (function () {
         this.displayService.updateLastPressed(operation);
         this.displayService.addOperation(operation);
     };
+    CalculatorApp.prototype.negate = function () {
+        this.displayService.updateLastPressed("0"); // Makes sure operation duplication works properly
+        var currentResult = parseFloat(this.displayService.displayResult);
+        if (currentResult > 0) {
+            this.displayService.displayResult = "-" + this.displayService.displayResult;
+        }
+        else if (currentResult < 0) {
+            this.displayService.displayResult = this.displayService.displayResult.slice(1, this.displayService.displayResult.length);
+        }
+    };
+    CalculatorApp.prototype.point = function () {
+        this.displayService.updateLastPressed("0");
+        if (!this.displayService.displayResult.match(/[^-]\D/)) {
+            if (this.displayService.displayResult === "0") {
+                this.displayService.appendResult("0.");
+            }
+            else {
+                this.displayService.appendResult(".");
+            }
+        }
+    };
+    CalculatorApp.prototype.historySelected = function (item) {
+        this.displayService.historySelected(item);
+    };
     CalculatorApp.prototype.cleared = function () {
         this.displayService.clearAll();
+    };
+    CalculatorApp.prototype.clearedEntry = function () {
+        var entryLength = this.displayService.displayResult.length;
+        for (var i = 0; i < entryLength; i++) {
+            this.displayService.delete();
+        }
     };
     CalculatorApp.prototype.delete = function () {
         this.displayService.delete();

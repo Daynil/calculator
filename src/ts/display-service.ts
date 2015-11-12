@@ -1,4 +1,4 @@
-class HistoryItem {
+export class HistoryItem {
 	operationChain: string;
 	result: number;
 	
@@ -16,10 +16,11 @@ export class DisplayService {
 	operationChain: any[] = [];
 	currentResult: number = 0;
 	newResult: boolean = false;
+	fromHistory: boolean = false;
 	lastPressed: string[] = [];
 	history: HistoryItem[] = [];
 	
-	appendResult(num: number) {
+	appendResult(num) {
 		if (this.displayResult === "0") this.displayResult = "";
 		if (!this.newResult) {
 			if (this.displayResult.length < this.maxResult) this.displayResult += num;
@@ -39,10 +40,16 @@ export class DisplayService {
 	}
 	
 	addOperation(operation: string) {
+		if (this.fromHistory) {
+			this.operationChain.push(operation);
+			this.displayOperation += " " + operation + " ";
+			this.fromHistory = false;
+			return;
+		}
 		// If we've just pressed an operation previously, switch to new operation
 		if ( !( isNaN(this.getLastPressed()) ) || this.operationChain.length === 0 ) {
 			this.operationChain.push(this.displayResult);
-			this.displayOperation += this.displayResult + operation;
+			this.displayOperation += this.displayResult + " " + operation + " ";
 			if (this.operationChain.length > 1) {
 				let result = this.perform(this.operationChain);
 				this.newResult = true;
@@ -53,7 +60,7 @@ export class DisplayService {
 		} else {
 			this.operationChain.pop();
 			this.operationChain.push(operation);
-			this.displayOperation = this.displayOperation.slice(0, this.displayOperation.length-1) + operation;
+			this.displayOperation = this.displayOperation.slice(0, this.displayOperation.length-2) + operation + " ";
 		}
 	}
 	
@@ -106,6 +113,7 @@ export class DisplayService {
 	}
 	
 	equals() {
+		if (this.fromHistory) return;
 		let result = 0;
 		if (this.operationChain.length === 0) return;
 		if (this.operationChain.length % 2 === 0) {
@@ -121,7 +129,18 @@ export class DisplayService {
 		this.newResult = true;
 		// Add to history
 		var historyItem = new HistoryItem(operations, result);
-		this.history.push(historyItem);
+		this.history.unshift(historyItem);
+	}
+	
+	historySelected(item: HistoryItem) {
+		var historyChain = item.operationChain.slice(0, item.operationChain.length-1);  // Slice off the =
+		this.displayOperation = historyChain;
+		this.operationChain = historyChain.split(" ");
+		this.operationChain.pop();  // Remove the blank item from the space
+		this.newResult = true;
+		this.appendResult(item.result);
+		this.newResult = true;
+		this.fromHistory = true;
 	}
 	
 	clearAll() {
@@ -131,8 +150,9 @@ export class DisplayService {
 		this.operationChain = [];
 		this.lastPressed = [];
 		this.newResult = false;
+		this.fromHistory = false;
 	}
-	
+
 	clearHistory() {
 		this.history = [];
 	}

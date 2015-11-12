@@ -30,8 +30,40 @@ class CalculatorApp {
 	  this.displayService.addOperation(operation);
   }
   
+  negate() {
+	  this.displayService.updateLastPressed("0"); // Makes sure operation duplication works properly
+	  var currentResult = parseFloat(this.displayService.displayResult);
+	  if (currentResult > 0) {
+		  this.displayService.displayResult = "-" + this.displayService.displayResult;  
+	  } else if (currentResult < 0) {
+		  this.displayService.displayResult = this.displayService.displayResult.slice(1, this.displayService.displayResult.length);
+	  }
+  }
+  
+  point() {
+	  this.displayService.updateLastPressed("0");
+	  if (!this.displayService.displayResult.match(/[^-]\D/)) {
+		  if (this.displayService.displayResult === "0") {
+			  this.displayService.appendResult("0.");
+		  } else {
+			  this.displayService.appendResult("."); 
+		  }
+	  }
+  }
+  
+  historySelected(item) {
+	  this.displayService.historySelected(item);
+  }
+  
   cleared() {
 	  this.displayService.clearAll();
+  }
+  
+  clearedEntry() {
+	  var entryLength = this.displayService.displayResult.length;
+	  for (var i = 0; i < entryLength; i++) {
+		  this.displayService.delete();
+	  }
   }
   
   delete() {

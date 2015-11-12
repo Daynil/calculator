@@ -24,6 +24,7 @@ import {Component, View, bootstrap} from 'angular2/angular2';
 	  }
 	  .history-item:hover {
 		  background-color: hsl(77,2%,33%);
+		  cursor: pointer;
 	  }
   `]
 })
